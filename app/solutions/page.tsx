@@ -46,37 +46,62 @@ export default function SolutionsPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              <Card className="p-8 border-2 border-[#E2E8F0] hover:border-[#1E5631]/50 transition-colors">
-                <h3 className="text-xl font-bold mb-4 text-[#2D3748]">
-                  Ingredient Selection & Substitution
-                </h3>
-                <p className="text-[#4A5568] leading-relaxed">
-                  Matching based on application targets, cost range, and target
-                  market requirements. We help you find the optimal ingredients
-                  for your specific formulation needs.
-                </p>
-              </Card>
-
-              <Card className="p-8 border-2 border-[#E2E8F0] hover:border-[#1E5631]/50 transition-colors">
-                <h3 className="text-xl font-bold mb-4 text-[#2D3748]">
-                  Document Package & Compliance Preparation
-                </h3>
-                <p className="text-[#4A5568] leading-relaxed">
-                  Collaboration on Spec/COA/SDS/Declaration documents tailored
-                  to your target market's regulatory requirements and
-                  documentation standards.
-                </p>
-              </Card>
-
               <Card className="p-0 border-2 border-[#E2E8F0] hover:border-[#1E5631]/50 transition-colors overflow-hidden">
-                <div className="w-full h-64 overflow-hidden">
+                <div className="relative w-full h-48 overflow-hidden">
                   <Image
-                    src="/images/warehouse-logistics.jpg"
-                    alt="Warehouse logistics with automated machinery"
+                    src="/images/ingredient-selection.jpg"
+                    alt="Magnifying glass representing ingredient selection"
                     width={800}
                     height={400}
                     className="w-full h-full object-cover"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-4 text-[#2D3748]">
+                    Ingredient Selection & Substitution
+                  </h3>
+                  <p className="text-[#4A5568] leading-relaxed">
+                    Matching based on application targets, cost range, and target
+                    market requirements. We help you find the optimal ingredients
+                    for your specific formulation needs.
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="p-0 border-2 border-[#E2E8F0] hover:border-[#1E5631]/50 transition-colors overflow-hidden">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/images/documents-compliance.jpg"
+                    alt="Organized documents and files for compliance"
+                    width={800}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-4 text-[#2D3748]">
+                    Document Package & Compliance Preparation
+                  </h3>
+                  <p className="text-[#4A5568] leading-relaxed">
+                    Collaboration on Spec/COA/SDS/Declaration documents tailored
+                    to your target market's regulatory requirements and
+                    documentation standards.
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="p-0 border-2 border-[#E2E8F0] hover:border-[#1E5631]/50 transition-colors overflow-hidden">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/images/warehouse-supply-chain.jpg"
+                    alt="Warehouse supply chain with organized inventory"
+                    width={800}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
                 </div>
                 <div className="p-8">
                   <h3 className="text-xl font-bold mb-4 text-[#2D3748]">
@@ -85,20 +110,32 @@ export default function SolutionsPage() {
                   <p className="text-[#4A5568] leading-relaxed">
                     End-to-end logistics management from supplier coordination to
                     final delivery, ensuring timely and efficient supply chain
-                    operations with automated warehouse systems.
+                    operations with organized warehouse systems.
                   </p>
                 </div>
               </Card>
 
-              <Card className="p-8 border-2 border-[#E2E8F0] hover:border-[#1E5631]/50 transition-colors">
-                <h3 className="text-xl font-bold mb-4 text-[#2D3748]">
-                  Supply Chain Delivery Collaboration
-                </h3>
-                <p className="text-[#4A5568] leading-relaxed">
-                  Lead time coordination, batch planning, shipping logistics,
-                  and customs clearance document collaboration for seamless
-                  delivery.
-                </p>
+              <Card className="p-0 border-2 border-[#E2E8F0] hover:border-[#1E5631]/50 transition-colors overflow-hidden">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/images/collaboration-handshake.jpg"
+                    alt="Business collaboration and partnership"
+                    width={800}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-4 text-[#2D3748]">
+                    Supply Chain Delivery Collaboration
+                  </h3>
+                  <p className="text-[#4A5568] leading-relaxed">
+                    Lead time coordination, batch planning, shipping logistics,
+                    and customs clearance document collaboration for seamless
+                    delivery.
+                  </p>
+                </div>
               </Card>
 
               <Card className="p-8 border-2 border-[#E2E8F0] hover:border-[#1E5631]/50 transition-colors md:col-span-2">

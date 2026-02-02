@@ -284,8 +284,8 @@ export default function HomePage() {
             >
               <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
                 <Image
-                  src="/images/warehouse-logistics.jpg"
-                  alt="Warehouse logistics with automated machinery"
+                  src="/images/warehouse-supply-chain.jpg"
+                  alt="Warehouse supply chain with organized inventory"
                   fill
                   className="object-cover"
                 />
