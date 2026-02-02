@@ -1,15 +1,21 @@
+'use client';
+
+import { useState } from "react"
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 
 export default function HomePage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-white">
       {/* Header - White Background */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="flex h-28 items-center justify-between">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex h-20 lg:h-28 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
@@ -17,12 +23,12 @@ export default function HomePage() {
                 alt="Revodro Tech AG"
                 width={500}
                 height={125}
-                className="h-[6.25rem] w-auto"
+                className="h-14 lg:h-[6.25rem] w-auto"
                 priority
               />
             </Link>
 
-            {/* Navigation */}
+            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
               <Link
                 href="/"
@@ -61,7 +67,74 @@ export default function HomePage() {
                 Contact Us
               </Link>
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-[#165531] hover:text-[#4CAF50] transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
+
+          {/* Mobile Navigation Dropdown */}
+          {mobileMenuOpen && (
+            <nav className="lg:hidden pb-4 border-t border-gray-100 mt-2">
+              <div className="flex flex-col space-y-3 pt-4">
+                <Link
+                  href="/"
+                  className="text-base font-bold text-[#165531] hover:text-[#4CAF50] transition-colors py-2 border-l-4 border-[#165531] pl-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-base font-medium text-[#203748] hover:text-[#4CAF50] transition-colors py-2 pl-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/ingredients"
+                  className="text-base font-medium text-[#203748] hover:text-[#4CAF50] transition-colors py-2 pl-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Ingredients & Products
+                </Link>
+                <Link
+                  href="/solutions"
+                  className="text-base font-medium text-[#203748] hover:text-[#4CAF50] transition-colors py-2 pl-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Solutions
+                </Link>
+                <Link
+                  href="/partners"
+                  className="text-base font-medium text-[#203748] hover:text-[#4CAF50] transition-colors py-2 pl-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Partners
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-base font-medium text-[#203748] hover:text-[#4CAF50] transition-colors py-2 pl-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </nav>
+          )}
         </div>
       </header>
 
