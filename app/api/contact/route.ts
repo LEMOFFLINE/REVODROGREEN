@@ -1,22 +1,20 @@
-import { Resend } from "resend";
+import { BrevoClient } from "@getbrevo/brevo";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    // Initialize Resend inside the handler to avoid build-time errors
-    const apiKey = process.env.RESEND_API_KEY;
+    const apiKey = process.env.BREVO_API_KEY;
     if (!apiKey) {
-      console.error("RESEND_API_KEY is not configured");
+      console.error("BREVO_API_KEY is not configured");
       return NextResponse.json(
         { error: "Email service not configured" },
         { status: 500 }
       );
     }
-    const resend = new Resend(apiKey);
+
     const body = await request.json();
     const { name, company, email, phone, inquiry, product, message } = body;
 
-    // Validate required fields
     if (!name || !email || !inquiry || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -24,7 +22,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Map inquiry type to readable text
     const inquiryTypes: Record<string, string> = {
       sample: "Sample Request",
       quote: "Quotation Request",
@@ -33,19 +30,20 @@ export async function POST(request: Request) {
       general: "General Inquiry",
     };
 
-    // Map product to readable text
     const productTypes: Record<string, string> = {
       hmo: "HMO (Human Milk Oligosaccharides)",
       plant: "Natural Plant Flavors & Concentrates",
       other: "Other",
     };
 
-    const { data, error } = await resend.emails.send({
-      from: "Revodro Website <noreply@revodro.net>",
-      to: ["office@revodro.net"],
-      replyTo: email,
+    const client = new BrevoClient({ apiKey });
+
+    const result = await client.transactionalEmails.sendTransacEmail({
+      sender: { name: "Revodro Website", email: "postmaster@revodro.net" },
+      to: [{ email: "office@revodro.net" }],
+      replyTo: { email },
       subject: `[Website Inquiry] ${inquiryTypes[inquiry] || inquiry} from ${name}`,
-      html: `
+      htmlContent: `
         <h2>New Contact Form Submission</h2>
         <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
           <tr>
@@ -80,15 +78,7 @@ export async function POST(request: Request) {
       `,
     });
 
-    if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json(
-        { error: "Failed to send email" },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json({ success: true, id: data?.id });
+    return NextResponse.json({ success: true, id: result?.messageId });
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(
