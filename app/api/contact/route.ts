@@ -39,7 +39,7 @@ export async function POST(request: Request) {
     const client = new BrevoClient({ apiKey });
 
     const result = await client.transactionalEmails.sendTransacEmail({
-      sender: { name: "Revodro Website", email: "postmaster@revodro.net" },
+      sender: { name: "Revodro Website", email: "office@revodro.net" },
       to: [{ email: "office@revodro.net" }],
       replyTo: { email },
       subject: `[Website Inquiry] ${inquiryTypes[inquiry] || inquiry} from ${name}`,
