@@ -194,7 +194,7 @@ export default function ContactPage() {
                         >
                           Name *
                         </label>
-                        <Input id="name" name="name" placeholder="Your name" required />
+                        <Input id="name" name="name" placeholder="" required />
                       </div>
                       <div className="space-y-2">
                         <label
@@ -203,7 +203,7 @@ export default function ContactPage() {
                         >
                           Company
                         </label>
-                        <Input id="company" name="company" placeholder="Company name" />
+                        <Input id="company" name="company" placeholder="" />
                       </div>
                     </div>
 
@@ -219,7 +219,7 @@ export default function ContactPage() {
                           id="email"
                           name="email"
                           type="email"
-                          placeholder="your@email.com"
+                          placeholder=""
                           required
                         />
                       </div>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                           id="phone"
                           name="phone"
                           type="tel"
-                          placeholder="+41 XX XXX XX XX"
+                          placeholder=""
                         />
                       </div>
                     </div>
@@ -296,7 +296,7 @@ export default function ContactPage() {
                       <Textarea
                         id="message"
                         name="message"
-                        placeholder="Please provide details about your inquiry, including target market, application scenario, and any specific requirements..."
+                        placeholder=""
                         rows={6}
                         required
                       />
