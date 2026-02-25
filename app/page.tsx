@@ -210,7 +210,7 @@ export default function HomePage() {
                   </h3>
                   <p className="text-[#4A5568] mb-2 text-sm font-semibold">Human Milk Oligosaccharides</p>
                   <p className="text-[#203748] leading-relaxed mb-5 text-base">
-                    Exclusive authorized partner for HMO products in Europe, supporting 2'-FL, 3'-SL, and LNnT.
+                    Exclusive authorized partner for HMO products in Europe, including 2'-FL, 3'-SL, and LNnT.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 mt-auto">
